@@ -26,14 +26,14 @@ Zavdannia8.1/
 │   │   └── sections.js              # Дані про всі розділи
 │   ├── pages/                       # Сторінки
 │   │   ├── Home/                    # Головна сторінка
-│   │   ├── Physics/                 # Фізика
-│   │   ├── MathVideo/               # Математика
-│   │   ├── History/                 # Історія
-│   │   ├── Logic/                   # Логіка
-│   │   ├── TechnologyPresentation/  # Технології
-│   │   ├── SciFiStory/              # Наукова фантастика
-│   │   ├── AIAccuracyAnalysis/      # Аналіз ШІ
-│   │   ├── SmartDevicesTale/        # Казка про пристрої
+│   │   ├── 01-Physics/              # Фізика
+│   │   ├── 02-MathVideo/            # Математика
+│   │   ├── 03-History/              # Історія
+│   │   ├── 04-Logic/                # Логіка
+│   │   ├── 05-TechnologyPresentation/  # Технології
+│   │   ├── 06-SciFiStory/           # Наукова фантастика
+│   │   ├── 07-AIAccuracyAnalysis/   # Аналіз ШІ
+│   │   ├── 08-SmartDevicesTale/     # Казка про пристрої
 │   │   └── NotFound/                # 404 сторінка
 │   ├── styles/
 │   │   └── index.css                # Глобальні стилі
