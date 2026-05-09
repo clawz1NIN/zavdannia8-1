@@ -1,10 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { sections } from '../../data/sections';
-
 const Home = () => {
-  const [selectedSection, setSelectedSection] = useState(null);
-
   const technologies = [
     { name: 'Vite', icon: '⚡', color: 'text-purple-600 dark:text-purple-400' },
     { name: 'React', icon: '⚛️', color: 'text-blue-600 dark:text-blue-400' },
@@ -78,43 +72,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Sections Grid */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8">
-            📚 Розділи проєкту
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sections.map((section) => (
-              <div
-                key={section.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden border-2 border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600"
-              >
-                <div className={`${section.color} h-2`}></div>
-                <div className="p-6">
-                  <div className="text-5xl mb-4 text-center">{section.icon}</div>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-3 text-center min-h-[3.5rem]">
-                    {section.title}
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    <button
-                      onClick={() => setSelectedSection(section)}
-                      className="w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm"
-                    >
-                      📖 Детальніше
-                    </button>
-                    <Link
-                      to={section.path}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 transition-all text-center text-sm shadow-md"
-                    >
-                      Перейти →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Info Section */}
         <div className="max-w-4xl mx-auto mt-16">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 rounded-2xl p-8 text-white shadow-2xl">
@@ -129,62 +86,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Modal */}
-      {selectedSection && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 flex items-center justify-center p-4 z-50 animate-fadeIn"
-          onClick={() => setSelectedSection(null)}
-        >
-          <div
-            className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full p-8 shadow-2xl transform transition-all animate-slideUp"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between mb-6">
-              <div className="flex items-center gap-4">
-                <div className="text-6xl">{selectedSection.icon}</div>
-                <div>
-                  <div className={`inline-block px-3 py-1 ${selectedSection.color} text-white text-sm font-semibold rounded-full mb-2`}>
-                    Пункт {selectedSection.id}
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-                    {selectedSection.title}
-                  </h3>
-                </div>
-              </div>
-              <button
-                onClick={() => setSelectedSection(null)}
-                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            
-            <div className="mb-6">
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                {selectedSection.description}
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <Link
-                to={selectedSection.path}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 transition-all text-center shadow-md"
-              >
-                Перейти до розділу →
-              </Link>
-              <button
-                onClick={() => setSelectedSection(null)}
-                className="px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-              >
-                Закрити
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

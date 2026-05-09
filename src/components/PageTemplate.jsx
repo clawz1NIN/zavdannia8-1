@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import { sections } from '../data/sections';
 
-const PageTemplate = ({ 
-  sectionId, 
-  children, 
-  showNavigation = true 
+const PageTemplate = ({
+  sectionId,
+  children
 }) => {
   const currentSection = sections.find(s => s.id === sectionId);
-  const otherSections = sections.filter(s => s.id !== sectionId);
 
   if (!currentSection) return null;
 
@@ -16,8 +14,8 @@ const PageTemplate = ({
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,36 +49,9 @@ const PageTemplate = ({
         </div>
 
         {/* Content Area */}
-        <div className="max-w-5xl mx-auto mb-12">
+        <div className="max-w-5xl mx-auto">
           {children}
         </div>
-
-        {/* Navigation to Other Sections */}
-        {showNavigation && (
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6 text-center">
-              📚 Інші розділи проєкту
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {otherSections.map((section) => (
-                <Link
-                  key={section.id}
-                  to={section.path}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 border-2 border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600"
-                >
-                  <div className={`${section.color} h-1 w-12 rounded-full mb-3`}></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl">{section.icon}</span>
-                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Пункт {section.id}</span>
-                  </div>
-                  <h3 className="font-semibold text-gray-800 dark:text-gray-200 text-sm leading-tight">
-                    {section.title}
-                  </h3>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
