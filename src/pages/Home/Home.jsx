@@ -4,8 +4,7 @@ const Home = () => {
     { name: 'React', icon: '⚛️', color: 'text-blue-600 dark:text-blue-400' },
     { name: 'Tailwind CSS', icon: '🎨', color: 'text-cyan-600 dark:text-cyan-400' },
     { name: 'React Router', icon: '🛣️', color: 'text-orange-600 dark:text-orange-400' },
-    { name: 'GitHub', icon: '🐙', color: 'text-gray-800 dark:text-gray-300' },
-    { name: 'Cloudflare Pages', icon: '☁️', color: 'text-orange-500 dark:text-orange-400' }
+    { name: 'GitHub', icon: '🐙', color: 'text-gray-800 dark:text-gray-300' }
   ];
 
   return (
@@ -34,12 +33,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Description */}
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Навчальний сайт-портфоліо з 8 різноманітними освітніми матеріалами: 
-            від фізики та математики до історії, логіки та творчих робіт.
-          </p>
-
           {/* GitHub Button */}
           <a
             href="https://github.com/clawz1NIN/zavdannia8-1"
@@ -59,7 +52,7 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8">
             🛠️ Використані технології
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {technologies.map((tech, index) => (
               <div
                 key={index}
@@ -69,20 +62,6 @@ const Home = () => {
                 <p className="font-semibold text-gray-800 dark:text-gray-200 text-sm">{tech.name}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Info Section */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 rounded-2xl p-8 text-white shadow-2xl">
-            <h2 className="text-3xl font-bold mb-4 text-center">
-              💡 Про цей проєкт
-            </h2>
-            <p className="text-lg text-center leading-relaxed opacity-95">
-              Цей сайт створено як демонстрацію різноманітних форматів навчальних матеріалів. 
-              Кожен розділ містить унікальний контент, що допомагає в освітньому процесі. 
-              Проєкт розроблено з використанням сучасних веб-технологій та розміщено на Cloudflare Pages.
-            </p>
           </div>
         </div>
       </div>
